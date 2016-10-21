@@ -1,0 +1,10 @@
+//Hymnal Schema
+[
+	{
+		"number": number, //Hymn number
+		"title": string, //Hymn Title
+		"verses": Object, // Keys are either verse number or chorus
+	},...
+]
+
+
