@@ -1,0 +1,12 @@
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{tabHeader.title}}</ion-title>
+    <ion-buttons end *ngIf="tabHeader.icons">
+      <button ion-button padding icon-only *ngFor="let icon of tabHeader.icons"
+      (click)="showModal(icon.modal)">
+        <ion-icon name="{{icon.name}}"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>

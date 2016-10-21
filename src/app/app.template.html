@@ -1,0 +1,41 @@
+<!-- Menu -->
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="outer-content">
+
+    <ion-list>
+      <button ion-item menuClose>
+        <ion-icon item-left name="card"></ion-icon>
+        Donate
+      </button>
+      <button ion-item menuClose>
+        <ion-icon item-left name="bug"></ion-icon>
+        Report Problems
+      </button>
+      <button ion-item menuClose>
+        <ion-icon item-left name="chatboxes"></ion-icon>
+        Send Feedback
+      </button>
+      <button ion-item menuClose>
+        <ion-icon item-left name="refresh"></ion-icon>
+        Check For Updates
+      </button>
+      <button ion-item menuClose>
+        <ion-icon item-left name="ios-mail"></ion-icon>
+        Contact Us
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+
+</ion-menu>
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
