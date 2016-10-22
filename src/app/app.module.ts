@@ -5,26 +5,22 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { UCFirst } from "../pipes/uc-first";
 
 import { MyApp } from './app.component';
-import { NewHymnalList } from '../pages/new-hymnal/new-hymnal-list';
-import { NewHymnalDetail } from '../pages/new-hymnal/new-hymnal-detail/new-hymnal-detail';
-import { OldHymnalList } from '../pages/old-hymnal/old-hymnal-list';
-import { OldHymnalDetail } from '../pages/old-hymnal/old-hymnal-detail/old-hymnal-detail';
-import { NumberFind }  from "../pages/number-find/number-find";
+import { Hymn, NewHymnal, OldHymnal } from '../pages/hymnal';
+import { NumberSearch }  from "../pages/number-search/number-search";
 import { Favorites } from '../pages/favorites/favorites';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { DonationPage } from '../pages/donation/donation';
 import { ContactUs } from '../pages/contact-us/contact-us';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TabHeaderComponent } from '../pages/tabs/tab-header/tab-header';
+import { TabsPage, TabHeaderComponent } from '../pages/tabs';
+import { HymnalReader }  from "../providers/hymnal-reader";
 
 @NgModule({
   declarations: [
     MyApp,
-    NewHymnalList,
-    NewHymnalDetail,
-    OldHymnalList,
-    OldHymnalDetail,
-    NumberFind,
+    Hymn,
+    NewHymnal,
+    OldHymnal,
+    NumberSearch,
     Favorites,
     FeedbackPage,
     DonationPage,
@@ -39,11 +35,10 @@ import { TabHeaderComponent } from '../pages/tabs/tab-header/tab-header';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    NewHymnalList,
-    NewHymnalDetail,
-    OldHymnalList,
-    OldHymnalDetail,
-    NumberFind,
+    Hymn,
+    NewHymnal,
+    OldHymnal,
+    NumberSearch,
     Favorites,
     FeedbackPage,
     DonationPage,
@@ -51,6 +46,6 @@ import { TabHeaderComponent } from '../pages/tabs/tab-header/tab-header';
     TabsPage,
     TabHeaderComponent
   ],
-  providers: []
+  providers: [HymnalReader]
 })
 export class AppModule {}

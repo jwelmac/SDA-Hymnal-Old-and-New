@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-toolbar color="dark">
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back" color="primary"></ion-icon>
+        &nbsp;{{ hymnal }} Hymnal
+      </button>
+    </ion-buttons>
+    <ion-title> <b># {{ hymn.number }}</b> </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3 class="hymn-title">{{hymn.title}}</h3>
+  <div class="verse" *ngFor="let verse of verses;">
+    <h4>{{verse}}</h4>
+    <p [innerHTML]="hymn.verses[verse]"></p>
+  </div>
+</ion-content>

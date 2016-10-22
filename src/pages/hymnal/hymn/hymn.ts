@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 import { ViewController, NavParams } from 'ionic-angular';
 
-import { UCFirst } from "../pipes/uc-first";
-
 @Component({
-  selector: 'page-number-find',
-  templateUrl: 'number-find.html'
+  templateUrl: 'hymn.html'
 })
-export class NumberFind {
+export class Hymn {
   hymnal: string;
+  hymn: any;
+  verses: Array<string>;
 
   constructor(
     public viewCtrl: ViewController,
-    private params: NavParams
+    navParams: NavParams
   ) {
-    this.hymnal = params.get('hymnal');
+    this.hymn = navParams.get('hymn');
+    this.verses = Object.keys(this.hymn.verses);
+    this.hymnal = navParams.get('from');
   }
 
   dismiss() {

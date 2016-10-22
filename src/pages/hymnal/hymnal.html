@@ -1,0 +1,24 @@
+<ion-header>
+  <tab-header [tabHeader]="tabHeader"></tab-header>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let hymn of hymnal" #item>
+        <ion-item (click)=openHymn(hymn)>
+          <b>{{hymn.number}}.</b>  {{hymn.title}}
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button (click)="favorite(hymn.number, item)">
+            Favorite
+            <ion-icon name="heart-outline"></ion-icon>
+          </button>
+          <button ion-button color="danger">
+            Listen
+            <ion-icon name="musical-notes" item-right></ion-icon>
+          </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

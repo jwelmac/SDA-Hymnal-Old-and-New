@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { NewHymnalList } from '../new-hymnal/new-hymnal-list';
-import { OldHymnalList } from '../old-hymnal/old-hymnal-list';
+import { NewHymnal } from '../hymnal/new-hymnal';
+import { OldHymnal } from '../hymnal/old-hymnal';
 import { Favorites } from '../favorites/favorites';
 
 export interface TabInterface {
@@ -15,15 +15,11 @@ export interface TabInterface {
 })
 
 export class TabsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
   public tabs: TabInterface[] = [
-    {title: "New Hymnal", icon: "ios-bookmarks", component: NewHymnalList},
-    {title: "Old Hymnal", icon: "ios-book", component: OldHymnalList},
-    {title: "Favorites", icon: "heart", component: Favorites}
+    {title: "Favorites", icon: "heart", component: Favorites},
+    {title: "New Hymnal", icon: "ios-bookmarks", component: NewHymnal},
+    {title: "Old Hymnal", icon: "ios-book", component: OldHymnal}
   ];
 
-  constructor() {
-
-  }
+  constructor() {}
 }
