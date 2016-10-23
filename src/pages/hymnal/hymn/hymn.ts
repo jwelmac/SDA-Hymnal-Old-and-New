@@ -7,17 +7,23 @@ import { ViewController, NavParams } from 'ionic-angular';
 export class Hymn {
   hymnal: string;
   hymn: any;
-  verses: Array<string>;
+  otherVerses: Array<string>;
 
   constructor(
     public viewCtrl: ViewController,
     navParams: NavParams
   ) {
     this.hymn = navParams.get('hymn');
-    this.verses = Object.keys(this.hymn.verses);
+    this.otherVerses = this.getOtherVerses(this.hymn.verses);
     this.hymnal = navParams.get('from');
   }
 
+  // Gets the other verses besides Verse 1 and the chorus
+  getOtherVerses(verses: Array<any>): Array<string> {
+    return Object.keys(verses).filter(key => ['1', 'chorus'].indexOf(key) == -1);
+  }
+
+  //Hide the hymn
   dismiss() {
     this.viewCtrl.dismiss();
   }
