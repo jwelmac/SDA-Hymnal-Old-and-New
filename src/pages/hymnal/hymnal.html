@@ -10,20 +10,8 @@
   (ionCancel)="toggleSearch(false)">
 </ion-searchbar>
   <ion-list>
-    <ion-item-sliding *ngFor="let hymn of hymns" #item>
-        <ion-item (click)=openHymn(hymn)>
-          <b>{{hymn.number}}.</b>  {{hymn.title}}
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button (click)="favorite(hymn.number, item)">
-            Favorite
-            <ion-icon name="heart-outline"></ion-icon>
-          </button>
-          <button ion-button color="danger">
-            Listen
-            <ion-icon name="musical-notes" item-right></ion-icon>
-          </button>
-        </ion-item-options>
-    </ion-item-sliding>
+    <ion-item *ngFor="let hymn of hymns" (click)=openHymn(hymn)>
+      <b>{{hymn.number}}.</b>  {{hymn.title}}
+    </ion-item>
   </ion-list>
 </ion-content>

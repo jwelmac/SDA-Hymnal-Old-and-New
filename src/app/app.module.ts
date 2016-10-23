@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { Storage }  from "@ionic/storage";
 
 import { UCFirst } from "../pipes/uc-first";
 
@@ -46,6 +47,6 @@ import { HymnalReader }  from "../providers/hymnal-reader";
     TabsPage,
     TabHeaderComponent
   ],
-  providers: [HymnalReader]
+  providers: [HymnalReader, Storage]
 })
 export class AppModule {}

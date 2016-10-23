@@ -17,7 +17,7 @@ export class Hymnal {
     public navCtrl: NavController,
     loadingCtrl: LoadingController,
     private modalCtrl: ModalController,
-    hymnalReader: HymnalReader,
+    private hymnalReader: HymnalReader,
     private hymnalType: string
   ) {
 
@@ -85,12 +85,6 @@ export class Hymnal {
     let modal = this.modalCtrl.create(Hymn, {hymn: hymn, from: this.hymnalType});
     console.log("Opening Hymn:", hymn);
     modal.present();
-  }
-
-  //Set hymn as favorite
-  favorite(num: number, item: ItemSliding) {
-    console.log("Favoriting "+this.hymnalType+" Hymnal Song #"+num);
-    item.close();
   }
 
   //Show the search bar
