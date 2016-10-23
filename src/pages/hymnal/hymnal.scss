@@ -1,3 +1,11 @@
-page-new-hymnal {
+.searchbar-md .searchbar-md-cancel {
+    right: 10px;
+    display: block;
+    left: inherit;
+}
 
+.searchbar-has-value.searchbar-has-focus {
+  .searchbar-md-cancel {
+    display: none;
+  }
 }

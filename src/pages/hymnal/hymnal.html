@@ -2,10 +2,15 @@
   <tab-header [tabHeader]="tabHeader"></tab-header>
 </ion-header>
 
-
 <ion-content>
+<ion-searchbar *ngIf="searchVisible"
+  (ionInput)="findHymnsWithTitle($event)"
+  showCancelButton="true"
+  animated="true"
+  (ionCancel)="toggleSearch(false)">
+</ion-searchbar>
   <ion-list>
-    <ion-item-sliding *ngFor="let hymn of hymnal" #item>
+    <ion-item-sliding *ngFor="let hymn of hymns" #item>
         <ion-item (click)=openHymn(hymn)>
           <b>{{hymn.number}}.</b>  {{hymn.title}}
         </ion-item>

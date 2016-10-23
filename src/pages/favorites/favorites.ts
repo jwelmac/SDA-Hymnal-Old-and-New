@@ -4,7 +4,6 @@ import { NavController } from 'ionic-angular';
 import { TabHeader, TabHeaderIcon } from '../tabs/tab-header/tab-header';
 
 @Component({
-  selector: 'hymnal-favorites',
   templateUrl: 'favorites.html'
 })
 export class Favorites {

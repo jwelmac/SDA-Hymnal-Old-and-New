@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "SDANewAndOldHymnal",
+  "version": "2.0.0-alpha.1",
+  "description": "SDANewAndOldHymnal: The New and Old Seventh Day Adventist Church Hymnal.",
   "private": true,
   "scripts": {
     "build": "ionic-app-scripts build",
@@ -33,7 +33,6 @@
     "@ionic/app-scripts": "^0.0.36",
     "typescript": "^2.0.3"
   },
-  "description": "SDA-Hymnal: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",

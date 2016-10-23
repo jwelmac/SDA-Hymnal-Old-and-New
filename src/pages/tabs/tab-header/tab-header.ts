@@ -1,12 +1,20 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
 // Interface for declaring a icon to place in the tab header
 export interface TabHeaderIcon {
   name: string, //Ionicon name
-  modal?: {
-    component: any, //Component to open in modal when clicked
-    params: any //Parameters to pass to that component
+  action?:{ //Action to execute when icon clicked
+    event?: {
+      subject: BehaviorSubject<any>,
+      value: any //Value to emit
+    },
+    modal?: {
+      component: any, //Component to open in modal when clicked
+      params: any //Parameters to pass to that component
+    }
   }
 }
 
@@ -29,12 +37,12 @@ export class TabHeaderComponent {
 
   constructor(public modalCtrl: ModalController) {}
 
-  showModal(modalPage) {
-    if (modalPage){
-      let modal = this.modalCtrl.create(modalPage.component, modalPage.params);
+  takeAction(action) {
+    if (action.modal){
+      let modal = this.modalCtrl.create(action.modal.component, action.modal.params);
       modal.present();
-    } else {
-      console.log("No modal set");
+    } else if (action.event){
+      action.event.subject.next(action.event.value);
     }
   }
 }
