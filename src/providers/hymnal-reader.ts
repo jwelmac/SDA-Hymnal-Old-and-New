@@ -16,7 +16,8 @@ export class HymnalReader {
   ) {
     // Set the storage name
     storage._db.config({
-      name        : 'SDA_Hymnal'
+      name : 'SDA_Hymnal',
+      storeName   : 'Favorites'
     });
   }
 
@@ -35,7 +36,7 @@ export class HymnalReader {
 
   //Add or remove hymn as favorite
   toggleFavorite(hymn: any, hymnal: string): Promise<any>{
-    let hymn_key = hymn.number+'';
+    let hymn_key = hymnal+'_'+hymn.number;
     return new Promise((resolve, reject) => {
       this.checkIsFavorite(hymn, hymnal).then(isFavorite => {
         isFavorite ? this.storage.remove(hymn_key)
@@ -47,11 +48,7 @@ export class HymnalReader {
 
   //Check if hymn is a favorite
   checkIsFavorite(hymn: any, hymnal: string): Promise<any> {
-    let hymn_key = hymn.number+'';
-    // Set the store name
-    this.storage._db.config({
-      storeName   : hymnal+'_Favorites'
-    });
+    let hymn_key = hymnal+'_'+hymn.number;
     return new Promise((resolve, reject) => {
       this.storage.get(hymn_key)
                   .then(present => resolve(present ? true : false));
