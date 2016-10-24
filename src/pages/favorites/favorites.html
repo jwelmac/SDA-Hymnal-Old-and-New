@@ -3,6 +3,34 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <!-- Segment Buttons -->
+  <ion-segment [(ngModel)]="currHymnal">
+    <ion-segment-button value="all">
+      All
+    </ion-segment-button>
+    <ion-segment-button *ngFor="let type of reader.hymnalTypes" value="{{type}}">
+      {{ type | ucfirst }}
+    </ion-segment-button>
+  </ion-segment>
 
+  <!-- Search Bar -->
+  <ion-searchbar *ngIf="searchVisible"
+    (ionInput)="findHymnsWithTitle($event)"
+    showCancelButton="true"
+    animated="true"
+    (ionCancel)="toggleSearch(false)">
+  </ion-searchbar>
+
+  <!-- Hymn List -->
+  <ion-list>
+    <div *ngFor="let hymn of faves.favorites">
+      <ion-item (click)="reader.openHymn(hymn,hymn.hymnal)"
+                [class.hidden]="currHymnal !== 'all' && currHymnal !== hymn.hymnal">
+        <b>{{hymn.number}}.</b>  {{hymn.title}}
+        <ion-note [class.hidden]="currHymnal === hymn.hymnal"
+        item-right>{{hymn.hymnal | ucfirst}}</ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

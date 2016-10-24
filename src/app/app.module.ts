@@ -13,7 +13,7 @@ import { FeedbackPage } from '../pages/feedback/feedback';
 import { DonationPage } from '../pages/donation/donation';
 import { ContactUs } from '../pages/contact-us/contact-us';
 import { TabsPage, TabHeaderComponent } from '../pages/tabs';
-import { HymnalReader }  from "../providers/hymnal-reader";
+import { HymnalReader, HymnalFaves }  from "../providers";
 
 @NgModule({
   declarations: [
@@ -47,6 +47,6 @@ import { HymnalReader }  from "../providers/hymnal-reader";
     TabsPage,
     TabHeaderComponent
   ],
-  providers: [HymnalReader, Storage]
+  providers: [HymnalReader, HymnalFaves, Storage]
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ModalController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 import { HymnalReader } from "../../providers/hymnal-reader";
 import { Hymnal }  from "./hymnal";
@@ -12,12 +12,10 @@ Old hymnal constructor
 export class OldHymnal extends Hymnal {
 
   constructor(
-    public navCtrl: NavController,
     loadingCtrl: LoadingController,
-    modalCtrl: ModalController,
     hymnalReader: HymnalReader
   ) {
-    super (navCtrl, loadingCtrl, modalCtrl, hymnalReader, "Old");
+    super (loadingCtrl, hymnalReader, "Old");
   }
 
 }

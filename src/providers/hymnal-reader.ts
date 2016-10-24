@@ -1,25 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Storage }  from "@ionic/storage";
 import 'rxjs/add/operator/map';
+
+import { ModalController } from 'ionic-angular';
+
+import { Hymn } from "../pages/hymnal/hymn/hymn";
 
 @Injectable()
 export class HymnalReader {
-  private hymnalTypes = ["old", "new"];
+  public hymnalTypes = ["old", "new"];
   private hymnalUrl = 'assets/hymnals/';
-  public favorites;
-
 
   constructor(
     private http: Http,
-    private storage: Storage
-  ) {
-    // Set the storage name
-    storage._db.config({
-      name : 'SDA_Hymnal',
-      storeName   : 'Favorites'
-    });
-  }
+    private modalCtrl: ModalController,
+  ) {}
 
   loadHymnal(type) {
     return new Promise((resolve, reject) => {
@@ -34,25 +29,11 @@ export class HymnalReader {
     });
   }
 
-  //Add or remove hymn as favorite
-  toggleFavorite(hymn: any, hymnal: string): Promise<any>{
-    let hymn_key = hymnal+'_'+hymn.number;
-    return new Promise((resolve, reject) => {
-      this.checkIsFavorite(hymn, hymnal).then(isFavorite => {
-        isFavorite ? this.storage.remove(hymn_key)
-                   : this.storage.set(hymn_key, hymn);
-        resolve(!isFavorite);
-      });
-    });
-  }
-
-  //Check if hymn is a favorite
-  checkIsFavorite(hymn: any, hymnal: string): Promise<any> {
-    let hymn_key = hymnal+'_'+hymn.number;
-    return new Promise((resolve, reject) => {
-      this.storage.get(hymn_key)
-                  .then(present => resolve(present ? true : false));
-    });
+  //Open a hymn selected
+  openHymn(hymn: any, hymnalType: string) {
+    let modal = this.modalCtrl.create(Hymn, {hymn: hymn, from: hymnalType});
+    console.log("Opening Hymn:", hymn);
+    modal.present();
   }
 
 }

@@ -10,7 +10,7 @@
   (ionCancel)="toggleSearch(false)">
 </ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let hymn of hymns" (click)=openHymn(hymn)>
+    <ion-item *ngFor="let hymn of searchList" (click)="hymnalReader.openHymn(hymn,hymnalType)">
       <b>{{hymn.number}}.</b>  {{hymn.title}}
     </ion-item>
   </ion-list>

@@ -1,15 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { TabHeader, TabHeaderIcon } from '../tabs/tab-header/tab-header';
+import { TabHeader } from '../tabs/tab-header/tab-header';
+import { HymnalReader, HymnalFaves }  from "../../providers";
+import { Searchable } from "../searchable";
 
 @Component({
   templateUrl: 'favorites.html'
 })
-export class Favorites {
-  headerIcons: TabHeaderIcon[] = [];
-  tabHeader: TabHeader = new TabHeader("Favorites", this.headerIcons);
+export class Favorites extends Searchable{
+  currHymnal:string = 'all';
+  tabHeader: TabHeader;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(
+    public navCtrl: NavController,
+    private reader: HymnalReader,
+    private faves: HymnalFaves
+  ) {
+    super();
+    this.tabHeader = new TabHeader("Favorites");//, this.headerIcons);
+
+    //Set the searchable list
+    this.setSearchableList(faves.favorites);
+  }
 
 }
