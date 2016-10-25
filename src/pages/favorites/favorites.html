@@ -24,7 +24,7 @@
 
   <!-- Hymn List -->
   <ion-list>
-    <div *ngFor="let hymn of faves.favorites">
+    <div *ngFor="let hymn of searchList">
       <ion-item (click)="reader.openHymn(hymn,hymn.hymnal)"
                 [class.hidden]="currHymnal !== 'all' && currHymnal !== hymn.hymnal">
         <b>{{hymn.number}}.</b>  {{hymn.title}}

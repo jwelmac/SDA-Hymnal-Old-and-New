@@ -18,10 +18,10 @@ export class Favorites extends Searchable{
     private faves: HymnalFaves
   ) {
     super();
-    this.tabHeader = new TabHeader("Favorites");//, this.headerIcons);
+    this.tabHeader = new TabHeader("Favorites", this.headerIcons);
 
-    //Set the searchable list
-    this.setSearchableList(faves.favorites);
+    //Subscribe to the searchable list
+    faves.favesStream$.subscribe(favorites => this.setSearchableList(favorites));
   }
 
 }

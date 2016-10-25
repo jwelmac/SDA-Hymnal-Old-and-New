@@ -27,8 +27,10 @@ export class Searchable {
 
   //Set the list to be searched
   setSearchableList(list) {
-    this.searchableList = list;
-    this.initList();
+    if (list){
+      this.searchableList = list;
+      this.initList();
+    }
   }
 
   //Initialize the hymns to display to all the hymns in the current hymnal

@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-
 import { Storage }  from "@ionic/storage";
+import {ReplaySubject} from 'rxjs/ReplaySubject';
+import {Observable} from 'rxjs/Observable'; // tslint:disable-line
 
 @Injectable()
 export class HymnalFaves {
   public favorites: Array<any>;
+  // Create Observable source and subscribe to its stream to detect button press
+  private favesSubject =  new ReplaySubject<Array<any>>();
+  public favesStream$ = this.favesSubject.asObservable();
 
   constructor(private storage: Storage,) {
       // Set the storage name
@@ -43,7 +47,7 @@ export class HymnalFaves {
     this.storage.forEach((value, key) => {
       value.hymnal = key.split("_")[0].toLowerCase();
       this.favorites.push(value);
-      console.log("Favorites: ", this.favorites);
+      this.favesSubject.next(this.favorites);
     });
   }
 
