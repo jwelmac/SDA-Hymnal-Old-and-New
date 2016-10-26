@@ -3,7 +3,7 @@ import { LoadingController } from 'ionic-angular';
 import { TabHeader, TabHeaderIcon } from '../tabs/tab-header/tab-header';
 import { NumberSearch }  from "../number-search/number-search";
 import { HymnalReader } from "../../providers/hymnal-reader";
-import { Searchable } from "../searchable";
+import { Searchable } from "../../components/searchable";
 
 export class Hymnal extends Searchable{
   tabHeader: TabHeader;
@@ -44,7 +44,7 @@ export class Hymnal extends Searchable{
           modal: {
             component: NumberSearch,
             params: {
-              hymnal: this.hymnalType
+              hymnalType: this.hymnalType.toLowerCase()
             }
           }
         }

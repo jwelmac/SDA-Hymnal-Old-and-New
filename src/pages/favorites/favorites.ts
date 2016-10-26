@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { TabHeader } from '../tabs/tab-header/tab-header';
 import { HymnalReader, HymnalFaves }  from "../../providers";
-import { Searchable } from "../searchable";
+import { Searchable } from "../../components/searchable";
 
 @Component({
   templateUrl: 'favorites.html'

@@ -15,11 +15,13 @@
   </ion-segment>
 
   <!-- Search Bar -->
-  <ion-searchbar *ngIf="searchVisible"
+  <ion-searchbar class="animated"
+    [ngClass]="{fadeIn: searchVisible, fadeOut: !searchVisible, hidden: searchHidden}"
+    (webkitAnimationEnd)="toggleSearchHidden()"
     (ionInput)="findHymnsWithTitle($event)"
     showCancelButton="true"
     animated="true"
-    (ionCancel)="toggleSearch(false)">
+    (ionCancel)="toggleSearchVisible(false)">
   </ion-searchbar>
 
   <!-- Hymn List -->

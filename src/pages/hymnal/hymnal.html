@@ -3,12 +3,15 @@
 </ion-header>
 
 <ion-content>
-<ion-searchbar *ngIf="searchVisible"
-  (ionInput)="findHymnsWithTitle($event)"
-  showCancelButton="true"
-  animated="true"
-  (ionCancel)="toggleSearch(false)">
-</ion-searchbar>
+  <!-- Search Bar -->
+  <ion-searchbar class="animated"
+    [ngClass]="{fadeIn: searchVisible, fadeOut: !searchVisible, hidden: searchHidden}"
+    (webkitAnimationEnd)="toggleSearchHidden()"
+    (ionInput)="findHymnsWithTitle($event)"
+    showCancelButton="true"
+    animated="true"
+    (ionCancel)="toggleSearchVisible(false)">
+  </ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let hymn of searchList" (click)="hymnalReader.openHymn(hymn,hymnalType)">
       <b>{{hymn.number}}.</b>  {{hymn.title}}

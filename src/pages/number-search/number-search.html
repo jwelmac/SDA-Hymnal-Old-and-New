@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-toolbar>
-    <ion-title>Enter {{hymnal | ucfirst}} Hymnal Number</ion-title>
+    <ion-title>{{hymnalType | ucfirst}} Hymnal</ion-title>
     <ion-buttons end>
       <button ion-button (click)="dismiss()">
         <ion-icon name="close" color="primary"></ion-icon>
@@ -12,6 +12,41 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-item class="hymnLabel text-center">
+    <ion-label [color]="hymnStatus" floating>{{currHymn}}</ion-label>
+    <ion-input disabled="true" type="text" clearInput="true"
+               [value]="hymnNumber" class="text-center" >
+    </ion-input>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">1</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">2</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">3</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">4</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">5</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">6</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">7</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">8</button></ion-col>
+      <ion-col width-33><button ion-fab (click)="buttonPress($event)">9</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <button ion-fab [disabled]="hymnNumber.length == 0" (click)="backspace()">
+          <ion-icon name="backspace"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col width-33>
+        <ion-col width-33><button ion-fab (click)="buttonPress($event)">0</button></ion-col>
+      </ion-col>
+      <ion-col width-33>
+        <button ion-fab color="primary" (click)="openCurrHymnNumber()" [disabled]="hymnNumber.length == 0">GO</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

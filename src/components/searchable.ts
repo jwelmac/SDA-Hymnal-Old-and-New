@@ -11,7 +11,7 @@ export class Searchable {
   constructor(){
     // Create Observable source and subscribe to its stream to detect button press
     let searchSubject =  new BehaviorSubject<boolean>(this.searchVisible);
-    searchSubject.asObservable().subscribe(show => this.toggleSearch(show));
+    searchSubject.asObservable().subscribe(show => this.toggleSearchVisible(show));
 
     //Search icon
     let searchIcon: TabHeaderIcon = {
@@ -41,14 +41,17 @@ export class Searchable {
   toggleSearchVisible(show) {
     this.initList(); //Reset the hymns listed
     this.searchVisible = show;
-    //
-    if (show) {
+    //Put object in DOM
+    if (this.searchVisible) {
       this.searchHidden = false;
     }
   }
 
-  //Show the search bar
+  //Toggle search bar display
   toggleSearchHidden() {
+    if (!this.searchVisible) {
+      this.searchHidden = true;
+    }
   }
 
   //Find hymns with title containing the string given
