@@ -26,6 +26,7 @@ export class NumberSearch {
 
   openCurrHymnNumber() {
     this.reader.openHymnByNumber(this.hymnNumber, this.hymnalType);
+    this.clearHymnNumber();
   }
 
   buttonPress(event) {
@@ -35,7 +36,7 @@ export class NumberSearch {
     let result = this.reader.findHymnNumber(this.hymnNumber, this.hymnalType);
     if (result) {
       this.currHymn = result.title;
-      this.hymnStatus = "success";
+      this.hymnStatus = "secondary";
     } else {
       this.currHymn = "Invalid Hymn Number";
       this.hymnStatus = "danger";
