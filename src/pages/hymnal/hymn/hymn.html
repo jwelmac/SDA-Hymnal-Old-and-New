@@ -12,7 +12,7 @@
         <ion-icon *ngIf="!favorite" class="icon-2x" name="heart-outline"></ion-icon>
         <ion-icon *ngIf="favorite" class="icon-2x" name="heart" color="danger"></ion-icon>
       </button>
-      <button ion-button>
+      <button ion-button *ngIf="midi.exists" (click)="playHymn()">
         <ion-icon class="icon-2x" name="musical-notes"></ion-icon>
       </button>
     </ion-buttons>
