@@ -60,13 +60,18 @@ export class Searchable {
     this.initList();
 
     // set val to the value of the searchbar
-    let val = ev.target.value;
+    let val = this.makeComparable(ev.target.value);
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.searchList = this.searchList.filter((hymn) => {
-        return (hymn.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (this.makeComparable(hymn.title).indexOf(val) > -1);
       });
     }
+  }
+  
+  //Remove punctuation from string and convert to lowercase
+  makeComparable(text: string) {
+	return text.replace(/[^\w\s]|_/g, "").toLowerCase();
   }
 }

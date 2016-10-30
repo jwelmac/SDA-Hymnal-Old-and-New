@@ -16,9 +16,9 @@ export interface TabInterface {
 
 export class TabsPage {
   public tabs: TabInterface[] = [
-    {title: "Favorites", icon: "heart", component: Favorites},
     {title: "New Hymnal", icon: "ios-bookmarks", component: NewHymnal},
-    {title: "Old Hymnal", icon: "ios-book", component: OldHymnal}
+    {title: "Old Hymnal", icon: "ios-book", component: OldHymnal},
+    {title: "Favorites", icon: "heart", component: Favorites}
   ];
 
   constructor() {}
