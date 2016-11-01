@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { ModalController } from 'ionic-angular';
 
 import { Hymn } from "../pages/hymnal/hymn/hymn";
+import { HymnView } from "../pages/hymnal/hymn/hymn-view";
 
 @Injectable()
 export class HymnalReader {
@@ -31,8 +32,8 @@ export class HymnalReader {
   }
 
   //Open a hymn selected
-  openHymn(hymn: any, hymnalType: string) {
-    let modal = this.modalCtrl.create(Hymn, {hymn: hymn, from: hymnalType});
+  openHymn(hymn: Hymn, hymnalType: string) {
+    let modal = this.modalCtrl.create(HymnView, {hymn: hymn, from: hymnalType, reader: this});
     modal.present();
   }
 
@@ -48,9 +49,10 @@ export class HymnalReader {
   }
 
   //Find hymn by number
-  findHymnNumber(num: string, hymnalType: string) {
+  findHymnNumber(num: string|number, hymnalType: string) {
+    num = (typeof num === "string" ? parseInt(num) : num);
     let result = this.hymnals[hymnalType].filter(curr => {
-      return curr.number == parseInt(num);
+      return curr.number == num;
     });
     return result ? result[0] : false;
   }

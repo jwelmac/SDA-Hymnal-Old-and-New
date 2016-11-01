@@ -6,7 +6,7 @@ import { Storage }  from "@ionic/storage";
 import { UCFirst } from "../pipes/uc-first";
 
 import { MyApp } from './app.component';
-import { Hymn, NewHymnal, OldHymnal } from '../pages/hymnal';
+import { HymnDetail, HymnView, NewHymnal, OldHymnal } from '../pages/hymnal';
 import { NumberSearch }  from "../pages/number-search/number-search";
 import { Favorites } from '../pages/favorites/favorites';
 import { FeedbackPage } from '../pages/feedback/feedback';
@@ -18,7 +18,8 @@ import { HymnalReader, HymnalFaves }  from "../providers";
 @NgModule({
   declarations: [
     MyApp,
-    Hymn,
+    HymnDetail,
+    HymnView,
     NewHymnal,
     OldHymnal,
     NumberSearch,
@@ -36,7 +37,8 @@ import { HymnalReader, HymnalFaves }  from "../providers";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Hymn,
+    HymnDetail,
+    HymnView,
     NewHymnal,
     OldHymnal,
     NumberSearch,

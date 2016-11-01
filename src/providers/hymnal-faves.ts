@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage }  from "@ionic/storage";
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable'; // tslint:disable-line
+import { Hymn } from "../pages/hymnal/hymn/hymn";
 
 @Injectable()
 export class HymnalFaves {
@@ -21,7 +22,7 @@ export class HymnalFaves {
   }
 
   //Add or remove hymn as favorite
-  toggleFavorite(hymn: any, hymnal: string): Promise<any>{
+  toggleFavorite(hymn: Hymn, hymnal: string): Promise<any>{
     let hymn_key = hymnal.toLowerCase()+'_'+hymn.number;
     return new Promise((resolve, reject) => {
       this.checkIsFavorite(hymn, hymnal).then(isFavorite => {
@@ -33,7 +34,7 @@ export class HymnalFaves {
   }
 
   //Check if hymn is a favorite
-  checkIsFavorite(hymn: any, hymnal: string): Promise<any> {
+  checkIsFavorite(hymn: Hymn, hymnal: string): Promise<any> {
     let hymn_key = hymnal.toLowerCase()+'_'+hymn.number;
     return new Promise((resolve, reject) => {
       this.storage.get(hymn_key)
