@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-toolbar color="dark">
+    <ion-buttons>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back" color="primary"></ion-icon>
+        &nbsp;Back
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="toggleFavorite()">
+        <ion-icon *ngIf="!selectedHymn.favorite" class="icon-2x" name="heart-outline"></ion-icon>
+        <ion-icon *ngIf="selectedHymn.favorite" class="icon-2x" name="heart" color="danger"></ion-icon>
+      </button>
+      <button ion-button *ngIf="this.midi.exists" (click)="playHymn()">
+        <ion-icon class="icon-2x" name="musical-notes"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title> #{{currHymn.number}} - {{currHymn.title}} </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-slides *ngIf="hymns"# hymnsSlider [options]="hymnSliderOptions" (ionDidChange)="changeHymns()">
+		<ion-slide *ngFor="let hymn of hymns">
+		  <hymn [hymn]="hymn" [hymnal]="hymnal"></hymn>
+		</ion-slide>
+	</ion-slides>
+</ion-content>
