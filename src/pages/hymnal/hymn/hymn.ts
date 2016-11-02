@@ -11,14 +11,16 @@ export interface Hymn {
   templateUrl: 'hymn.html'
 })
 export class HymnDetail {
-  @Input('hymn') hymn: any;
-  @Input('hymnal') hymnal: string;
+  @Input() hymn: any;
   otherVerses: Array<string>;
 
   constructor() {
-      this.otherVerses = this.getOtherVerses(this.hymn.verses);
+
   }
 
+	ionViewWillLoad(){
+		this.otherVerses = this.getOtherVerses(this.hymn.verses);
+	}
   // Gets the other verses besides Verse 1 and the chorus
   getOtherVerses(verses: Array<any>): Array<string> {
     return Object.keys(verses).filter(key => ['1', 'chorus'].indexOf(key) == -1);

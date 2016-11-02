@@ -7,13 +7,13 @@ import { HymnalFaves, HymnalReader }  from "../../../providers";
   templateUrl: 'hymn-view.html'
 })
 export class HymnView {
-  @ViewChild('hymnsSlider') slider: Slides;
   hymnal: string;
   reader: HymnalReader;
+  firstLoad: boolean;
   //Hymns
   currHymn: Hymn;
   hymns: Array<Hymn> = [];
-  totalHymns: number = 3;
+  totalHymnSlides: number = 3;
   //Current hymn properties
   favorite: any;
   midi: HymnMidi;
@@ -43,6 +43,8 @@ export class HymnView {
         this.prevIndex = value;
         this.setNextHymn(initIndex);
       });
+      this.firstLoad = true;
+      console.log("Hymns: ", this.hymns);
   }
 
   //Hide the hymn
@@ -56,28 +58,36 @@ export class HymnView {
 	  this.faves.checkIsFavorite(this.currHymn, this.hymnal)
                 .then(isFavorite => this.favorite = isFavorite);
     this.midi = new HymnMidi(this.currHymn);
-    if (setOthers) this.setNextHymn(index);
+    if (setOthers){
+     this.setNextHymn(index);
+     this.prevIndex = index;
+   }
   }
 
   //Change the active hymns
-  changeHymns(){
-      this.initCurrHymn(this.slider.getActiveIndex());
+  changeHymns(slider){
+    if (!this.firstLoad){
+        this.prevIndex = slider.previousIndex-1;
+        this.initCurrHymn(slider.activeIndex-1);
+    } else {
+        this.firstLoad = false;
+    }
   }
 
   //Set the other hymns
   setNextHymn(currIndex: number){
       //Did we move forward or back
       let forward = this.wasSlidForward(currIndex);
-      let hymnIndex = this.getLoopIndex(this.currHymn.number, this.hymnal.length, forward, true),
+      let hymnIndex = this.getLoopIndex(this.currHymn.number, this.hymnalLegth(this.hymnal), forward, true),
           hymn = this.reader.findHymnNumber(hymnIndex, this.hymnal),
-          slideIndex = this.getLoopIndex(currIndex, this.slider.length(), forward);
+          slideIndex = this.getLoopIndex(currIndex, this.totalHymnSlides, forward);
       //Update next hymn in direction swiped to be displayed
       this.hymns[slideIndex] = hymn;
   }
 
   //Check if slides went forward
   wasSlidForward(currIndex: number): boolean{
-      let lastIndex = this.totalHymns-1;
+      let lastIndex = this.totalHymnSlides-1;
       if(lastIndex > 1 && this.prevIndex === 0) {
           //Not the last index
           return currIndex !== lastIndex;
@@ -101,6 +111,10 @@ export class HymnView {
     	currIndex = hymnNumber ? currIndex-1 : currIndex;
     	let prev = (currIndex + (next ? length+1 : length-1)) % length;
       return hymnNumber ? prev+1 : prev;
+  }
+
+  hymnalLegth(hymnal): number {
+    return this.reader.hymnals[hymnal.toLowerCase()].length;
   }
 
   //Play the hymn midi

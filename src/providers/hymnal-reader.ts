@@ -51,7 +51,7 @@ export class HymnalReader {
   //Find hymn by number
   findHymnNumber(num: string|number, hymnalType: string) {
     num = (typeof num === "string" ? parseInt(num) : num);
-    let result = this.hymnals[hymnalType].filter(curr => {
+    let result = this.hymnals[hymnalType.toLowerCase()].filter(curr => {
       return curr.number == num;
     });
     return result ? result[0] : false;

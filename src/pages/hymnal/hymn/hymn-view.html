@@ -9,8 +9,8 @@
     </ion-buttons>
     <ion-buttons end>
       <button ion-button (click)="toggleFavorite()">
-        <ion-icon *ngIf="!selectedHymn.favorite" class="icon-2x" name="heart-outline"></ion-icon>
-        <ion-icon *ngIf="selectedHymn.favorite" class="icon-2x" name="heart" color="danger"></ion-icon>
+        <ion-icon *ngIf="!favorite" class="icon-2x" name="heart-outline"></ion-icon>
+        <ion-icon *ngIf="favorite" class="icon-2x" name="heart" color="danger"></ion-icon>
       </button>
       <button ion-button *ngIf="this.midi.exists" (click)="playHymn()">
         <ion-icon class="icon-2x" name="musical-notes"></ion-icon>
@@ -23,9 +23,9 @@
 
 
 <ion-content padding>
-	<ion-slides *ngIf="hymns"# hymnsSlider [options]="hymnSliderOptions" (ionDidChange)="changeHymns()">
+	<ion-slides *ngIf="hymns" [options]="hymnSliderOptions" (ionDidChange)="changeHymns($event)">
 		<ion-slide *ngFor="let hymn of hymns">
-		  <hymn [hymn]="hymn" [hymnal]="hymnal"></hymn>
+		  <hymn [hymn]="hymn"></hymn>
 		</ion-slide>
 	</ion-slides>
 </ion-content>

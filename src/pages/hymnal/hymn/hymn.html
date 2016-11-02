@@ -1,43 +1,16 @@
-<ion-header>
-
-  <ion-toolbar color="dark">
-    <ion-buttons>
-      <button ion-button (click)="dismiss()">
-        <ion-icon name="arrow-back" color="primary"></ion-icon>
-        &nbsp;Back
-      </button>
-    </ion-buttons>
-    <ion-buttons end>
-      <button ion-button (click)="toggleFavorite()">
-        <ion-icon *ngIf="!favorite" class="icon-2x" name="heart-outline"></ion-icon>
-        <ion-icon *ngIf="favorite" class="icon-2x" name="heart" color="danger"></ion-icon>
-      </button>
-      <button ion-button *ngIf="midi.exists" (click)="playHymn()">
-        <ion-icon class="icon-2x" name="musical-notes"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title> #{{hymn.number}} - {{hymn.title}} </ion-title>
-  </ion-toolbar>
-
-</ion-header>
-
-
-
-<ion-content padding>
-  <h3 class="hymn-title">{{hymn.title}}</h3>
-  <!-- Verse 1 -->
-  <div class="verse">
-    <h4>1</h4>
-    <p [innerHTML]="hymn.verses['1']"></p>
-  </div>
-  <!-- Chorus -->
-  <div class="verse chorus" *ngIf="hymn.verses['chorus']">
-    <h4>CHORUS</h4>
-    <p [innerHTML]="hymn.verses['chorus']"></p>
-  </div>
-  <!-- Other Verses -->
-  <div class="verse" *ngFor="let verse of otherVerses;">
-    <h4>{{verse}}</h4>
-    <p [innerHTML]="hymn.verses[verse]"></p>
-  </div>
-</ion-content>
+<h3 class="hymn-title">{{hymn.title}}</h3>
+<!-- Verse 1 -->
+<div class="verse">
+  <h4>1</h4>
+  <p [innerHTML]="hymn.verses['1']"></p>
+</div>
+<!-- Chorus -->
+<div class="verse chorus" *ngIf="hymn.verses['chorus']">
+  <h4>CHORUS</h4>
+  <p [innerHTML]="hymn.verses['chorus']"></p>
+</div>
+<!-- Other Verses -->
+<div class="verse" *ngFor="let verse of otherVerses;">
+  <h4>{{verse}}</h4>
+  <p [innerHTML]="hymn.verses[verse]"></p>
+</div>
