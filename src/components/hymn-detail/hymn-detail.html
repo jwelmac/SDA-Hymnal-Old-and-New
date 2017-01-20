@@ -5,12 +5,12 @@
   <p [innerHTML]="hymn.verses['1']"></p>
 </div>
 <!-- Chorus -->
-<div class="verse chorus" *ngIf="hymn.verses['chorus']">
+<div class="verse chorus" *ngIf="hymn.verses?.chorus">
   <h4>CHORUS</h4>
   <p [innerHTML]="hymn.verses['chorus']"></p>
 </div>
 <!-- Other Verses -->
-<div class="verse" *ngFor="let verse of otherVerses;">
+<div class="verse" *ngFor="let verse of hymn.otherVerses;">
   <h4>{{verse}}</h4>
   <p [innerHTML]="hymn.verses[verse]"></p>
 </div>

@@ -3,9 +3,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { ModalController } from 'ionic-angular';
-
-import { Hymn } from "../pages/hymnal/hymn/hymn";
-import { HymnView } from "../pages/hymnal/hymn/hymn-view";
+import { Hymn } from '../components/hymn' ;
+import { HymnView } from "../pages/hymn-view/hymn-view";
 
 @Injectable()
 export class HymnalReader {
@@ -44,16 +43,14 @@ export class HymnalReader {
     if (hymn){
       this.openHymn(hymn, hymnalType);
     } else {
-      console.error("No hymn found with that number"); //ToDO: Use toast controller
+      console.error("No hymn found with that number"); //ToDO: Use alert controller
     }
   }
 
   //Find hymn by number
   findHymnNumber(num: string|number, hymnalType: string) {
     num = (typeof num === "string" ? parseInt(num) : num);
-    let result = this.hymnals[hymnalType.toLowerCase()].filter(curr => {
-      return curr.number == num;
-    });
+    let result = this.hymnals[hymnalType.toLowerCase()].filter(curr => curr.number == num);
     return result ? result[0] : false;
   }
 

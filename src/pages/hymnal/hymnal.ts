@@ -2,8 +2,8 @@ import { LoadingController } from 'ionic-angular';
 
 import { TabHeader, TabHeaderIcon } from '../tabs/tab-header/tab-header';
 import { NumberSearch }  from "../number-search/number-search";
-import { HymnalReader } from "../../providers/hymnal-reader";
-import { Searchable } from "../../components/searchable";
+import { HymnalReader } from "../../providers";
+import { Searchable } from "../../components";
 
 export class Hymnal extends Searchable{
   tabHeader: TabHeader;

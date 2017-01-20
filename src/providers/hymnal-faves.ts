@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage }  from "@ionic/storage";
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Observable'; // tslint:disable-line
-import { Hymn } from "../pages/hymnal/hymn/hymn";
+import { Hymn } from "../components/hymn";
 
 @Injectable()
 export class HymnalFaves {
@@ -11,7 +11,7 @@ export class HymnalFaves {
   private favesSubject =  new ReplaySubject<Array<any>>();
   public favesStream$ = this.favesSubject.asObservable();
 
-  constructor(private storage: Storage,) {
+  constructor(private storage: Storage) {
       // Set the storage name
       storage._db.config({
         name : 'SDA_Hymnal',

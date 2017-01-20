@@ -24,8 +24,14 @@
 
 <ion-content padding>
 	<ion-slides *ngIf="hymns" [options]="hymnSliderOptions" (ionDidChange)="changeHymns($event)">
+    <ion-slide *ngIf="hymns && hymns[totalHymnSlides-1]">
+      <hymn [hymn]="hymns[totalHymnSlides-1]"></hymn>
+    </ion-slide>
 		<ion-slide *ngFor="let hymn of hymns">
 		  <hymn [hymn]="hymn"></hymn>
 		</ion-slide>
+    <ion-slide *ngIf="hymns && hymns[0]">
+      <hymn [hymn]="hymns[0]"></hymn>
+    </ion-slide>
 	</ion-slides>
 </ion-content>

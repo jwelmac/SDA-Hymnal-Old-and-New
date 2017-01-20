@@ -5,19 +5,17 @@ import { Storage }  from "@ionic/storage";
 
 import { UCFirst } from "../pipes/uc-first";
 
-import { MyApp } from './app.component';
-import { HymnDetail, HymnView, NewHymnal, OldHymnal } from '../pages/hymnal';
-import { NumberSearch }  from "../pages/number-search/number-search";
-import { Favorites } from '../pages/favorites/favorites';
-import { FeedbackPage } from '../pages/feedback/feedback';
-import { DonationPage } from '../pages/donation/donation';
-import { ContactUs } from '../pages/contact-us/contact-us';
-import { TabsPage, TabHeaderComponent } from '../pages/tabs';
+import { HymnalApp } from './app.component';
+import { HymnDetail } from '../components';
+import {
+         HymnView, NewHymnal, OldHymnal,NumberSearch, Favorites,
+         FeedbackPage, DonationPage, ContactUs, TabsPage, TabHeaderComponent
+       } from '../pages';
 import { HymnalReader, HymnalFaves }  from "../providers";
 
 @NgModule({
   declarations: [
-    MyApp,
+    HymnalApp,
     HymnDetail,
     HymnView,
     NewHymnal,
@@ -32,11 +30,11 @@ import { HymnalReader, HymnalFaves }  from "../providers";
     UCFirst
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(HymnalApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    HymnalApp,
     HymnDetail,
     HymnView,
     NewHymnal,
@@ -49,6 +47,6 @@ import { HymnalReader, HymnalFaves }  from "../providers";
     TabsPage,
     TabHeaderComponent
   ],
-  providers: [HymnalReader, HymnalFaves, Storage]
+  providers: [HymnalFaves, Storage, HymnalReader]
 })
 export class AppModule {}

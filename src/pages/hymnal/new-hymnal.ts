@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 
-import { HymnalReader } from "../../providers/hymnal-reader";
+import { HymnalReader } from "../../providers";
 import { Hymnal }  from "./hymnal";
 /**
 New hymnal constructor

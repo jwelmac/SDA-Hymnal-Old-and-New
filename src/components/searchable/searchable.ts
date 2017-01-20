@@ -1,5 +1,5 @@
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import { TabHeaderIcon } from '../pages/tabs/tab-header/tab-header';
+import { TabHeaderIcon } from '../../pages/tabs/tab-header/tab-header';
 
 export class Searchable {
   headerIcons: TabHeaderIcon[] = [];
@@ -69,9 +69,9 @@ export class Searchable {
       });
     }
   }
-  
+
   //Remove punctuation from string and convert to lowercase
   makeComparable(text: string) {
-	return text.replace(/[^\w\s]|_/g, "").toLowerCase();
+	   return text ? text.replace(/[^\w\s]|_/g, "").toLowerCase() : "";
   }
 }

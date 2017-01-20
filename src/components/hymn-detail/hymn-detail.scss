@@ -1,0 +1,27 @@
+hymn{
+  @extend .full-height;
+  overflow-y: scroll;
+  position: absolute;
+  left: 0;
+
+  .verse {
+    h4 {
+      font-weight: bold;
+    }
+
+    p {
+      margin-top: 0;
+      font-size: 1.4em;
+    }
+  }
+
+
+  .hymn-title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .icon-2x {
+    font-size: 2em;
+  }
+}
