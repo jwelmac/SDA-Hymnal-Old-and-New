@@ -1571,7 +1571,7 @@ angular.module('starter.services', [])
     "body": "\n<font color=\"#0B6138\"><b>1</b></font><br>\nJust as I am, without one plea,<br>\nBut that Thy blood was shed for me,<br>\nAnd that Thou bidst me come to Thee,<br>\nO Lamb of God, I come, I come.<br>\n<br>\n<font color=\"#0B6138\"><b>2</b></font><br>\nJust as I am, and waiting not<br>\nTo rid my soul of one dark blot,<br>\nTo Thee whose blood can cleanse each spot,<br>\nO Lamb of God, I come, I come.<br>\n<br>\n<font color=\"#0B6138\"><b>3</b></font><br>\nJust as I am, though tossed about<br>\nWith many a conflict, many a doubt,<br>\n\"Fightings within, and fears without,\"<br>\nO Lamb of God, I come, I come.<br>\n<br>\n<font color=\"#0B6138\"><b>4</b></font><br>\nJust as I am, poor, wretched, blind;<br>\nSight, riches, healing of the mind,<br>\nYea, all I need in Thee to find,<br>\nO Lamb of God, I come, I come.<br>\n<br>\n<font color=\"#0B6138\"><b>5</b></font><br>\nJust as I am, Thou wilt receive,<br>\nWilt welcome, pardon, cleanse, relieve;<br>\nBecause Thy promise I believe,<br>\nO Lamb of God, I come, I come.<br>\n<br>\n<font color=\"#0B6138\"><b>6</b></font><br>\nJust as I am, Thy love I own<br>\nHas broken every barrier down;<br>\nNow, to be Thine, and Thine alone,<br>\nO Lamb of God, I come, I come.<br>\n\n<p></p>\n\n"
   },
   {
-    "number": 313,
+    "number": 314,
     "title": "Just as I Am",
     "body": "\n<font color=\"#0B6138\"><b>1</b></font><br>\nJust as I am, without one plea,<br>\nBut that Thy blood was shed for me,<br>\nAnd that Thou bidst me come to Thee,<br>\nO Lamb of God, I come, I come.<br>\n\n<p></p>\n\n"
   },
