@@ -2143,7 +2143,7 @@ angular.module('starter.services', [])
   {
     "number": 428,
     "title": "Sweet By and By",
-    "body": "<font color=\"#0B6138\"><b>1</b></font><br>\nThere's a land that is fairer than day,<br>\nAnd by faith we can see it afar;<br>\nFor the Father waits over the way<br>\nTo prepare us a dwelling place there.<br>\n<br>\n<i><b><font color=\"#CD9B1D\">CHORUS:</font></b><br>\nIn the sweet (in the sweet&lt;)br/&gt;\nBy and by (by and by),<br>\nWe shall meet on that beautiful shore;<br>\nIn the sweet (in the sweet)<br>\nBy and by (by and by)<br>\nWe shall meet on that beautiful shore.<br>\n</i><br>\n<font color=\"#0B6138\"><b>2</b></font><br>\nWe shall sing on that beautiful shore<br>\nThe melodious songs of the blest,<br>\nAnd our spirits shall sorrow no more<br>\nNot a sigh for the blessing of rest.<br>\n<br>\n<font color=\"#0B6138\"><b>3</b></font><br>\nTo our bountiful Father above<br>\nWe will offer our tribute of praise;<br>\nFor the glorious gift of His love<br>\nAnd the blessings that hallow our days.<br>\n\n<p></p>\n\n"
+    "body": "<font color=\"#0B6138\"><b>1</b></font><br>\nThere's a land that is fairer than day,<br>\nAnd by faith we can see it afar;<br>\nFor the Father waits over the way<br>\nTo prepare us a dwelling place there.<br>\n<br>\n<i><b><font color=\"#CD9B1D\">CHORUS:</font></b><br>\nIn the sweet (in the sweet)<br>\nBy and by (by and by),<br>\nWe shall meet on that beautiful shore;<br>\nIn the sweet (in the sweet)<br>\nBy and by (by and by)<br>\nWe shall meet on that beautiful shore.<br>\n</i><br>\n<font color=\"#0B6138\"><b>2</b></font><br>\nWe shall sing on that beautiful shore<br>\nThe melodious songs of the blest,<br>\nAnd our spirits shall sorrow no more<br>\nNot a sigh for the blessing of rest.<br>\n<br>\n<font color=\"#0B6138\"><b>3</b></font><br>\nTo our bountiful Father above<br>\nWe will offer our tribute of praise;<br>\nFor the glorious gift of His love<br>\nAnd the blessings that hallow our days.<br>\n\n<p></p>\n\n"
   },
   {
     "number": 429,
@@ -3473,7 +3473,7 @@ angular.module('starter.services', [])
   {
     "number": 694,
     "title": "Praise God, From Whom All Blessings",
-    "body": "&lt;\nPraise God, from Whom all blessings flow;<br>\nPraise Him, all creatures here below;<br>\nPraise Him above, ye heavenly host;<br>\nPraise Father, Son, and Holy Ghost.<br>\n\n<p></p>\n\n"
+    "body": "\nPraise God, from Whom all blessings flow;<br>\nPraise Him, all creatures here below;<br>\nPraise Him above, ye heavenly host;<br>\nPraise Father, Son, and Holy Ghost.<br>\n\n<p></p>\n\n"
   },
   {
     "number": 695,
